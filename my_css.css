@@ -1,0 +1,98 @@
+a:link {
+  color: violet;
+}
+
+a:visited {
+  color: lightblue;
+}
+
+a:hover {
+  color: lightgreen;
+}
+
+a:active {
+  color: orange;
+}
+
+.answer {
+  color: transparent;
+}
+
+.answer a:link, .answer a:visited, .answer a:hover, .answer a:active, .answer li {
+  color: transparent;
+}
+
+p, ul li {
+  font-size: 14pt;
+}
+
+ol > li {
+  font-size: 18pt;
+  font-weight: bold;
+}
+
+ul li {
+  font-weight: normal;
+}
+
+h1, h2, h5, p, ul li, li, body {
+  transition: all 0.5s ease-in-out;
+}
+
+body {
+  background-color: #36393E;
+}
+
+hr {
+  border-color: white;
+}
+
+h1, h2, h5, p, ul li, li, a, th, td {
+  color: white;
+  font-family: garamond;
+}
+
+#q1p, #q2p, #q3p, #q5p {
+  margin: 10px;
+  width: 400px;
+}
+
+#q4-pic {
+  width: 80%;
+}
+
+/* great naming scheme, amirite? */
+.sizee {
+  width: 100px;
+}
+
+/* all scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 1000px) {
+  h1, h2, h5, hr p, hr ul li, ul hr li, li, a, th, td, body {
+    transition: all 0.5s ease-in-out;
+  }
+  hr {
+    border-color: black;
+  }
+  body {
+    background-color: #FBDEBC;
+  }
+  h1, h2, h5, p, ul li, li, a, th, td {
+    color: black;
+  }
+}

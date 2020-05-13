@@ -1,0 +1,40 @@
+$grey: #36393E;
+$beige: #FBDEBC;
+
+a{
+    &:link{
+        color: violet;
+    }
+    &:visited{
+        color: lightblue;
+    }
+    &:hover{
+        color: lightgreen;
+    }
+    &:active{
+        color: orange;
+    }
+}
+
+.answer {
+    color: transparent;
+    // color: red;
+    a:link, a:visited, a:hover, a:active, li {
+        color: transparent;
+        // color: red;
+    }
+}
+
+p {
+	font-size: 14pt;
+}
+
+ol > li {
+	font-size: 18pt;
+	font-weight: bold;
+}
+
+ul li {
+    @extend p;
+	font-weight:normal;
+}

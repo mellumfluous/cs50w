@@ -1,0 +1,107 @@
+
+h1, h2, h5, p, li, body{
+	transition: all 0.5s ease-in-out;
+}
+
+body{
+	background-color: #36393E;
+}
+
+hr {
+	border-color: white
+}
+
+h1, h2, h5, p, li {
+	color: white;
+	font-family: garamond;
+}
+
+p {
+	font-size: 14pt;
+}
+
+ol li {
+	font-size: 18pt;
+	font-weight: bold;
+}
+
+ul li {
+	font-size: 14pt;
+	font-weight:normal;
+}
+
+#q1p, #q2p, #q3p, #q5p{
+	margin: 10px;
+	width: 400px;
+}
+
+.answer {
+	/* color: transparent; */
+	color: red;
+}
+
+.answer a:link, .answer a:visited, .answer a:hover, .answer a:active{
+	color: transparent;
+	color: red;
+}
+
+#q4-pic {
+	width: 80%;
+}
+
+/* great naming scheme, amirite? */
+.sizee {
+	width: 100px;
+}
+
+/* links */
+
+a:link {
+	color: violet;
+}
+
+a:visited {
+	color: lightblue;
+}
+
+a:hover {
+	color: lightgreen;
+}
+
+a:active {
+	color: orange;
+}
+
+/* all scrollbars */
+::-webkit-scrollbar{
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track{
+	background: none; 
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+	background: rgba(255,255,255, 0.5);
+	border-radius: 10px;
+}
+
+@media screen and (max-width: 900px){
+	h1, h2, h5, hr p, li, body{
+		transition: all 0.5s ease-in-out;
+	}
+	
+	hr {
+		border-color: black;
+	}
+
+	body {
+		background-color: #FBDEBC;
+	}
+	h1, h2, h5, p, li {
+		color: black;
+	}
+
+}
