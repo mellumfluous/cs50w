@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>All Pages</h1>
+    
+    <ul>
+        {% for match in matches %}
+            <li><a href ="{% url 'wiki' id=match%}">{{ match }}</a></li>
+
+        {% empty %}
+            <p> Something went wrong! The list is empty</p>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

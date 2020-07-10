@@ -1,0 +1,32 @@
+{% extends "logged_in_layout.html" %}
+
+{% block body %}
+<h2>Welcome to your reviews page {{ user }}!</h2>
+<h3>Here are your reviews</h3>
+<div class = "results">
+    <ul class = "hr_scroll">
+        {% for review in review_results %}
+        <li>
+            <a href="{{url_for('search_result', isbn = review.isbn)}}">
+            <div class="card">
+                <div class="card-body">
+                    <b><p>{{ review.title }}</p></b>
+                    <p>isbn: {{ review.isbn }}</p>
+                    <p>author: {{ review.author }}</p>
+                    <p>published: {{ review.year }}</p>
+                    <p class="card-text">{{ review.review }}</p>
+                </div>
+            </div>
+            </a>
+        </li>
+
+        {% else %}
+
+        <h3>{{ title_message }}</h3>
+
+        {% endfor %}
+        
+    </ul>
+</div>
+
+{% endblock %}

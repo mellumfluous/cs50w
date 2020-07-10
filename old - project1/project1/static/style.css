@@ -1,0 +1,99 @@
+h1, h2, h3, h4, h5, p, li, body{
+	transition: all 0.5s ease-in-out;
+}
+
+.card-body{
+	width: 20rem;
+	height: 2rem;
+}
+
+ul{
+    list-style-type:none;
+    white-space: nowrap;
+	overflow-x:auto;
+	overflow-y:hidden;
+}
+
+ul li{
+	display:inline-block;
+	/* overflow-y: auto; */
+}
+
+.card-text {
+	display: inline-block;
+	/* word-break: break-all; */
+	white-space: normal;
+}
+
+body{
+	background-color: #36393E;
+}
+
+span {
+	display: inline-block;
+	min-width: 50px; 
+	max-width: 200px
+}
+
+hr, .greeting{
+	border-color: white
+}
+
+h1, h2, h3, h4, h5, p, li, a, th, td, text {
+	color: white;
+	font-family: garamond;
+}
+
+p{
+	font-size: 14pt;
+}
+
+.btn-primary{
+	margin: 5px;
+}
+
+.form-control .search-bar{
+	box-sizing: content-box;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 1px solid;
+	background-color: transparent;
+	box-shadow: 0 1px 0 0 ;
+
+}
+
+/* all scrollbars */
+/* scrollbars don't work in FF :( */
+::-webkit-scrollbar{
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track{
+	background: none; 
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+	background: rgba(255,255,255, 0.5);
+	border-radius: 10px;
+}
+
+@media only screen and (max-width: 1000px){
+	h1, h2, h3, h4, h5, hr p, li, a, th, td, body{
+		transition: all 0.5s ease-in-out;
+	}
+	
+	hr .greeting{
+		border-color: black;
+	}
+
+	body {
+		background-color: #FBDEBC;
+	}
+	h1, h2, h3, h4, h5, p, li, a, th, td, text{
+		color: black;
+	}
+
+}
