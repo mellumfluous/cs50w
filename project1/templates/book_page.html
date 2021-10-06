@@ -1,0 +1,61 @@
+{% extends "logged_in_layout.html" %}
+
+{% block body %}
+
+<h2>Information about {{ book.title }}</h2>
+
+<p>Written by {{ book.author }} in {{ book.year }}.</p>
+<p>isbn: {{ book.isbn }}</p>
+<!-- <p>Average goodreads rating: {{ goodreads_rating }}</p> -->
+<p>Average goodreads rating: {{ goodreads["average_rating"] }}</p>
+
+<!-- https://stackoverflow.com/questions/12078571/jinja-templates-format-a-float-as-comma-separated-currency -->
+<!-- print with thousands separator -->
+
+<p>Number of goodreads ratings: {{ "{:,}".format(goodreads["ratings_count"]) }}</p>
+
+<form action="{{ url_for('review_submitted', isbn = book.isbn) }}" method="post">
+    <p>How would you rate this book?</p>
+    <div class="form-group">
+        <input type="text" name="rating" placeholder="your rating out of 5" />
+    </div>
+
+    <div class="form-group">
+        <!-- <input class="form-control review_box" name = "review" type="text" placeholder="Write your review on {{ book.title }} here!"> -->
+        <textarea class="form-control" name = "review" type = "text" placeholder="Write your review on {{ book.title }} here!"></textarea>
+    </div>
+
+    <div class="form-group text-center pull-left">
+        <button class="btn btn-primary">submit it</button>
+    </div>
+</form>
+<br clear="left">
+
+<p>{{ message }}</p>
+
+<h3>Goblet of Fire user reviews</h3>
+<div class = "results">
+    <ul class = "hr_scroll">
+        {% for review in review_results %}
+        <li>
+            <div class="card">
+                <div class="card-body">
+                    <b><p>reviewer: {{ review.username }}</p></b>
+                    <p>rating: {{ review.rating }}</p>
+                    <p class="card-text">{{ review.review }}</p>
+                    <!-- <a href="#" class="card-link">Card link</a> -->
+                    <!-- <a href="#" class="card-link">Another link</a> -->
+                </div>
+            </div>
+        </li>
+
+        {% else %}
+
+        <h3>{{ title_message }}</h3>
+
+        {% endfor %}
+        
+    </ul>
+</div>
+
+{% endblock%}

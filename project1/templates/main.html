@@ -1,0 +1,101 @@
+{% extends "logged_in_layout.html" %}
+
+{% block body %}
+<h2>Here lies the magic rectangle of answers! Enter authors, titles, or isbns to find books! Partial or full entries, the magic rectangle will find all!</h2>
+<p>You must be doubting the abilities of the magic rectangle of answers. Well, let me tell you, that it is indeed <i>the</i> magic rectangle. Known by many as a "search bar," it has helped many far and wide with whatever questions they have -whatever information they need. Now, don't be shy, step right up and tell it what it is you seek!</p>
+<form class="form-horizontal" action="{{url_for('search')}}" method = "post">
+
+    <!-- I wanted it to be the line search bar, not the box one :( -->
+
+    <div class="md-form mt-3">
+        <input class="form-control search-bar" name = "query" type="text" placeholder="Search" aria-label="Search">
+    </div>
+    <br>
+    <button class="btn my-2 my-sm-0" type="submit">Let's find your answer!</button>
+</form>
+<br>
+<br>
+<h3>{{author}}</h3>
+<div class = "results">
+    <ul class = "hr_scroll">
+        {% for author in author_results %}
+        <li>
+            <a href="{{url_for('search_result', isbn = author.isbn)}}">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ author.title }}</h4>
+                        <h4 class="card-subtitle mb-2 text-muted">{{ author.author}}</h4>
+                        <p class="card-text">{{ author.year }}</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+
+        {% else %}
+
+        <h3>{{ author_message }}</h3>
+
+        {% endfor %}
+        
+    </ul>
+</div>
+<br>
+<br>
+<h3>{{title}}</h3>
+<div class = "results">
+    <ul class = "hr_scroll">
+        {% for title in title_results %}
+        <li>
+            <a href="{{url_for('search_result', isbn = title.isbn)}}">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ title.title }}</h4>
+                        <h4 class="card-subtitle mb-2 text-muted">{{ title.author}}</h4>
+                        <p class="card-text">{{ title.year }}</p>
+                        <!-- <a href="#" class="card-link">Card link</a> -->
+                        <!-- <a href="#" class="card-link">Another link</a> -->
+                    </div>
+                </div>
+            </a>
+        </li>
+
+        {% else %}
+
+        <h3>{{ title_message }}</h3>
+
+        {% endfor %}
+        
+    </ul>
+</div>
+<br>
+<br>
+<h3>{{isbn}}</h3>
+<div class = "results">
+    <ul class = "hr_scroll">
+        {% for isbn in isbn_results %}
+        <li>
+            <a href="{{url_for('search_result', isbn = isbn.isbn)}}">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ isbn.title }}</h4>
+                        <h4 class="card-subtitle mb-2 text-muted">{{ isbn.author}}</h4>
+                        <p class="card-text">{{ isbn.year }}</p>
+                        <!-- <a href="#" class="card-link">Card link</a> -->
+                        <!-- <a href="#" class="card-link">Another link</a> -->
+                    </div>
+                </div>
+            </a>
+        </li>
+
+        {% else %}
+
+        <h3>{{ isbn_message }}</h3>
+
+        {% endfor %}
+
+    </ul>
+</div>
+
+<center>{{ login_message }}</center>
+
+{% endblock %}
